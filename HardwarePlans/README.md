@@ -1,5 +1,5 @@
-.docx files are the master files. They are the ones to edit if you want to contribute changes.   
-.pdf files have a reduced risk of accidental change. Recommended for general use including previewing on GitHub.
+<b>.docx</b> files are the master files. They are the ones to edit if you want to contribute changes.   
+<b>.pdf</b> files have a reduced risk of accidental change. Recommended for general use including previewing on GitHub.
 
 Photos of the prototype may look different to the plans.  
 The plans include lessons learned from building the prototype.
@@ -14,16 +14,16 @@ In my opinion the HobbyKing or similar design is the one to use when 3D printing
 ## DUBRO Photos ##
 <img src="https://github.com/manukautech/XMSnakeRobot/blob/master/HardwarePlans/Images/Dubro01.JPG" width="500" />
 <br /><br />
-<img src="Images/Dubro02.jpg" />
+<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/HardwarePlans/Images/Dubro02.JPG" width="500" />
 <br /><br />
 
 ## HobbyKing Photos ##
 Needs an extra frame mount piece which should in a 3D printed version be part of the rib piece. <br />
-<img src="Images/Anchor.jpg"  />
+<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/HardwarePlans/Images/Anchor.JPG" width="500" />
 <br /><br />
 Anchor mounts to the rib.<br />
-<img src="Images/AnchorRib.jpg" />
+<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/HardwarePlans/Images/AnchorRib.JPG" width="500" />
 <br /><br />
 Assembled with the HobbyKing 2mm Brass Ball Links: <br />
-<img src="Images/Hobbyking.jpg"  />
+<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/HardwarePlans/Images/Hobbyking.JPG" width="500" />
 <br /><br />
