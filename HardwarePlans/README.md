@@ -12,18 +12,18 @@ I have tried 2 different kinds of servo-link-ball-joints:
 In my opinion the HobbyKing or similar design is the one to use when 3D printing a "rib" with a suitable mount built into the design. You can see it in the prototype photos as my exercise in trying out ideas fro a 3D printed rib. However when going craft modelmaking with plywood, wire and glue the DUBRO is a lot faster to work with. The coloured ball mount with the bolt screwed in becomes the frame mount and the pushrod can be quickly cut and shaped with wire without any need to glue the wire into the ball mount as happens with the "HobbyKing". My experience is that the "DUBRO" cost is worth the time saving.  
 
 ## DUBRO Photos ##
-<img src="Images/Dubro01.jpg" max-width="500" />
+<img src="Images/Dubro01.jpg" width="500" />
 <br /><br />
-<img src="Images/Dubro02.jpg" max-width="500" />
+<img src="Images/Dubro02.jpg" width="500" />
 <br /><br />
 
 ## HobbyKing Photos ##
 Needs an extra frame mount piece which should in a 3D printed version be part of the rib piece. <br />
-<img src="Images/Anchor.jpg" max-width="500" />
+<img src="Images/Anchor.jpg" width="500" />
 <br /><br />
 Anchor mounts to the rib.<br />
-<img src="Images/AnchorRib.jpg" max-width="500" />
+<img src="Images/AnchorRib.jpg" width="500" />
 <br /><br />
 Assembled with the HobbyKing 2mm Brass Ball Links: <br />
-<img src="Images/Hobbyking.jpg" max-width="500" />
+<img src="Images/Hobbyking.jpg" width="500" />
 <br /><br />
