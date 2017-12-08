@@ -12,8 +12,8 @@ Byte 3 - val hundreds
 Byte 4 - val tens  
 Byte 5 - val units  
 
-By example:
-"A4+015" - Set servo number 4 in nano group A to + 15 degrees from centre position
+By example:  
+"A4+015" - Set servo number 4 in nano group A to + 15 degrees from centre position  
 "C1-040" - Set servo number 1 in nano group C to - 40 degrees from centre position
 
 You do not need a snake robot to run this. Connect 1 or more servos for proof of concept.
