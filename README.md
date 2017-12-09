@@ -1,6 +1,6 @@
 # XMSnakeRobot
 Hardware plans and software. Work in progress with a single segment proof of concept achieved as of Nov 2017.  
-Video: <a href="https://www.youtube.com/watch?v=1kkDN4BqMLU">https://www.youtube.com/watch?v=1kkDN4BqMLU</a>  
+Video: <a href="https://www.youtube.com/watch?v=1kkDN4BqMLU" target="_blank">https://www.youtube.com/watch?v=1kkDN4BqMLU</a>  
 Now under construction is a 10-segment snake to act as the testbed to start work on software for movement and performance.   
 
 <img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171203.JPG" width="600" />  
