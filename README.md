@@ -3,7 +3,7 @@ Hardware plans and software. This is a Work in Progress with a single segment pr
 Ref video: <a href="https://www.youtube.com/watch?v=1kkDN4BqMLU" target="_blank">https://www.youtube.com/watch?v=1kkDN4BqMLU</a>  
 Now under construction is a 10-segment snake to act as the testbed to start on software for movement and performance.  
 
-<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171203.JPG" width="600" />  
+<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171212.JPG" width="600" />  
 
 Why a Snake Robot? For hunting rats! Here in New Zealand we have rats etc, alien to these previously isolated islands, harming our much loved native bird populations including the national icon - the Kiwi. Think of a remote controlled small robot in the world of the rat and that world has mud, undergrowth and broken terrain where a snake form factor is worth trying. And we can get "bio-inspired" and realise that snakes are effective bio rat-hunters so it may be good to learn from them. This is an ambitious aim to build towards step by step with an indoor testbed first. If rat-hunting does not work out then there are plenty of other possibilities like robot circus performer and Youtube stardom. If cats can be stars on Youtube then maybe snake robots can be the next big thing!  
 
