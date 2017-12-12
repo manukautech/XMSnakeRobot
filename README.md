@@ -2,7 +2,6 @@
 Hardware plans and software. This is a Work in Progress with a single segment proof of concept achieved 06 Sep 2017 and an improved version passing a stress test 02 Oct 2017.  
 Video: <a href="https://www.youtube.com/watch?v=1kkDN4BqMLU" target="_blank">https://www.youtube.com/watch?v=1kkDN4BqMLU</a>  
 Now under construction is a 10-segment snake to act as the testbed to start work on software for movement and performance.  
-Therefore
 
 <img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171203.JPG" width="600" />  
 
