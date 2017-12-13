@@ -1,4 +1,4 @@
-## sketch_SnakeSpinalCord04 ##
+## sketch_SnakeSpinalCord05 ##
 Work in progress as at 08 Dec 2017.
 Code for Arduino Nano microcontrollers in use as the servo controllers, responding to control strings sent from a smart phone via bluetooth. TODO is the code for I2C connection between multiple nanos.  
 
