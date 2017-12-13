@@ -5,7 +5,7 @@ Code for Arduino Nano microcontrollers in use as the servo controllers, respondi
 Protocol is 6-byte signals.
 Variable signalPlace counts them from 0 to 5
 
-Byte 0 - thisBoardId - 'A', 'B', or 'C' for which nano responds  
+Byte 0 - thisBoardId - 'A', 'B', or 'C'  
 Byte 1 - servoNumber - range 0 to 7  
 Byte 2 - posNeg - '+' or '-'  
 Byte 3 - val hundreds  
