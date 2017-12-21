@@ -1,7 +1,6 @@
 //SnakeSpinalCord - Version05
 #include <Servo.h>
 
-//SnakeSpinalCord04
 //20171105 JPC started John Calder 05 Nov 2017
 //20171201 JPC bring in servo testing and lose SoftwareSerial
 //20171208 JPC edit and update comments
