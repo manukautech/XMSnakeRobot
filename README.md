@@ -1,9 +1,15 @@
 # XMSnakeRobot
 Hardware plans and software. This is a Work in Progress with a single segment proof of concept working well.  
 Ref video: <a href="https://www.youtube.com/watch?v=1kkDN4BqMLU" target="_blank">https://www.youtube.com/watch?v=1kkDN4BqMLU</a>  
-Now under construction is a 10-segment snake to act as the testbed to start on software for movement and performance.  
+Now under development is a 10-segment snake to act as the testbed to start on software for movement and performance.   
+As of 21 Dec 2017 construction of body and electronics version 01 is complete. Testing has started.  
+More details on blog "HiTechFromLoTech": <a href="https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html">https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html</a>.
 
-<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171212.JPG" width="600" />  
+<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171221_General3Segments.JPG" width="600" /><br />
+L to R ribs 03, 04, 05. Rib04 has the highest complexity because it includes the master Arduino Nano microcontroller.
+
+<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171221_GeneralWS.JPG" width="600" />
+
 
 Why a Snake Robot? For hunting rats! Here in New Zealand we have rats etc, alien to these previously isolated islands, harming our much loved native bird populations including the national icon - the Kiwi. Think of a remote controlled small robot in the world of the rat and that world has mud, undergrowth and broken terrain where a snake form factor is worth trying. And we can get "bio-inspired" and realise that snakes are effective bio rat-hunters so it may be good to learn from them. This is an ambitious aim to build towards step by step with an indoor testbed first. If rat-hunting does not work out then there are plenty of other possibilities like robot circus performer and Youtube stardom. If cats can be stars on Youtube then maybe snake robots can be the next big thing!  
 
