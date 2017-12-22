@@ -1,7 +1,7 @@
 # XMSnakeRobot
 Hardware plans and software. This is a Work in Progress with a single segment proof of concept working well.  
 Ref video: <a href="https://www.youtube.com/watch?v=1kkDN4BqMLU" target="_blank">https://www.youtube.com/watch?v=1kkDN4BqMLU</a>  
-Now under development is a 10-segment snake to act as the testbed to start on software for movement and performance. Warning that the plans published here are my working plans to building my first prototype and they are changing often via learning by doing.     
+Now under development is a 10-segment snake to act as the testbed to start on software for movement and performance. Warning that the plans published here are my working plans for building my first prototype and they are changing often via learning by doing.     
 As of 21 Dec 2017 construction of body and electronics version 01 is complete. Testing has started. Current number one challenge is issues with "I2C". More details on blog "HiTechFromLoTech":   
 <a href="https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html">https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html</a>.
 
