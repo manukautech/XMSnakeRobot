@@ -1,6 +1,6 @@
 ## sketch_SnakeSpinalCord07 ##
 Operational as at 26 Dec 2017.
-Code for Arduino Nano microcontrollers in use as the servo controllers, responding to control strings sent from a smart phone via bluetooth.
+Code for Arduino Nano microcontrollers in use as the servo controllers, responding to control strings sent from a smart phone via bluetooth.  
 Issue - minor - we are currently not receiving any data from the "ReceiveOnlySoftwareSerial" code intended for confirmation signals and future sensor data.
 
 Protocol is 6-byte signals.
