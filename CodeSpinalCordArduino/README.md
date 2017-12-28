@@ -1,6 +1,7 @@
-## sketch_SnakeSpinalCord05 ##
-Work in progress as at 08 Dec 2017.
-Code for Arduino Nano microcontrollers in use as the servo controllers, responding to control strings sent from a smart phone via bluetooth. TODO is the code for I2C connection between multiple nanos.  
+## sketch_SnakeSpinalCord07 ##
+Operational as at 26 Dec 2017.
+Code for Arduino Nano microcontrollers in use as the servo controllers, responding to control strings sent from a smart phone via bluetooth.
+Issue - minor - we are currently not receiving any data from the "ReceiveOnlySoftwareSerial" code intended for confirmation signals and future sensor data.
 
 Protocol is 6-byte signals.
 Variable signalPlace counts them from 0 to 5
@@ -23,6 +24,9 @@ You do not need a snake robot to run this. Connect 1 or more servos for proof of
 We are using 38400 baud as a serial communication standard. We use "AT commands" to set the HC-05 to 38400 baud which is a change from its default setting of 9600 baud.  
 For first testing with an Android smartphone, we install the App "Serial Bluetooth Terminal" by Kai Morich. This is a download from the Google Play Store. We then type in 6-character test commands. We can enter multiple signals separated by 'x'.  
 
-<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/CodeSpinalCordArduino/NanoTesting02_CU.jpg" width="500" /> 
+<img src="https://github.com/manukautech/XMSnakeRobot/blob/master/CodeSpinalCordArduino/NanoTesting02_CU.jpg" width="500" />  
+  
+## sketch_SnakeSpinalCord07Wemos  ##
+Experiment in using a Wemos as a replacement for an Arduino Nano when I was having servo strange movement issues. I was working through the hypothesis that there was something wrong with the Nano. The Wemos had exactly the same servo issues so that got me focussing on the code where I did, eventually, detect and fix a bug. Wemos works well with almost the same code. I plan to stay with Arduino Nano for now mainly because it has more pins, especially analogue inputs which I may need in the future.
 
 
