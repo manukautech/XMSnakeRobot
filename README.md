@@ -5,7 +5,7 @@ Video "Snake Robot Waggles its Head and Tail" is at:
 <a href="https://www.youtube.com/watch?v=bSphN0cfXJs" target="_blank">https://www.youtube.com/watch?v=bSphN0cfXJs</a>   
 
 More details on problem solving at blog "HiTechFromLoTech":   
-<a href="https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html">https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html</a>.
+<a href="https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html"  target="_blank">https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html</a>.
 
 <img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171221_General3Segments.JPG" width="600" /><br />
 L to R ribs 03, 04, 05. Rib04 has the highest complexity because it includes the master Arduino Nano microcontroller.
