@@ -1,8 +1,10 @@
 # XMSnakeRobot
-Hardware plans and software. This is a Work in Progress with a single segment proof of concept working well.  
-Ref video: <a href="https://www.youtube.com/watch?v=1kkDN4BqMLU" target="_blank">https://www.youtube.com/watch?v=1kkDN4BqMLU</a>  
-Now under development is a 10-segment snake to act as the testbed to start on software for movement and performance. The plans published here are my working plans for building my first prototype and they are changing often via learning by doing.     
-As of 21 Dec 2017 construction of body and electronics version 01 is complete. Testing has started. Current number one challenge is issues with "I2C". More details on blog "HiTechFromLoTech":   
+Hardware plans and software. As of 28 Dec 2017 this has reached the milestone of a with a testbed "body" with "spinal cord" responding as intended to command signals for 20 servos. Ref the <a href="https://github.com/manukautech/XMSnakeRobot/tree/master/CodeSpinalCordArduino">"Readme" under folder "CodeSpinalCordArduino"</a> for code and signal specs.
+  
+Video "Snake Robot Waggles its Head and Tail" is at:  
+<a href="https://www.youtube.com/watch?v=bSphN0cfXJs" target="_blank">https://www.youtube.com/watch?v=bSphN0cfXJs</a>   
+
+More details on problem solving at blog "HiTechFromLoTech":   
 <a href="https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html">https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html</a>.
 
 <img src="https://github.com/manukautech/XMSnakeRobot/blob/master/Images/Assemble_20171221_General3Segments.JPG" width="600" /><br />
