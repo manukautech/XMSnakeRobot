@@ -22,7 +22,7 @@ Here the Accessible Technologies are:
 - Low cost Android SmartPhone or Android SmartWatch for the robot "brain"
 - Arduino Nano microcontrollers for the robot "spinal cord"
 - Bluetooth HC-05 module as the link between "spinal cord" and "brain"
-- SG-90 model aircraft servos - 20 of them. 
+- MG90 model aircraft servos - 20 of them. 
   The snake has 10 segments each of which has servos for horizontal and vertical movement.
   
 
