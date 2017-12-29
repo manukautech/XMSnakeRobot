@@ -1,24 +1,17 @@
 //SnakeSpinalCord - Version07 is for the 3 Arduino Nanos in this snake robot
 //Variations for 'A', 'B' and 'C' are coded in. 
 //Edit the const byte THIS_BOARD line below before uploading.
+
 #include <Servo.h>
-
-//20171223 JPC use of ReceiveOnlySoftwareSerial by Nick Gammon on "A" to receive signals from "B" and "C"
-//Ref: http://gammon.com.au/Arduino/ReceiveOnlySoftwareSerial.zip
-//Comment-out "soft" statements for 'B' and 'C' before load - recommended approach is search for "soft" 
-#include <ReceiveOnlySoftwareSerial.h>
-
-const byte THIS_BOARD = 'A';
+const byte THIS_BOARD = 'B';
 String thisBoardId; // assigned to "A", "B" or "C" below
-
-ReceiveOnlySoftwareSerial softSerialB(10); // RX only
-ReceiveOnlySoftwareSerial softSerialC(11); // RX only
 
 //20171105 JPC started John Calder 05 Nov 2017
 //20171201 JPC bring in servo testing and lose SoftwareSerial
 //20171208 JPC edit and update comments
 //20171221 JPC begin testing on completed snake robot hardware
-//20171223 JPC lose i2c and bring back SoftwareSerial - then ReceiveOnlySoftwareSerial       
+//20171223 JPC remove i2c code and attempt SoftwareSerial again
+//20171228 JPC remove all SoftwareSerial - use Serial for monitoring one Nano at a time      
 
 //Robot snake has a smartphone or smartwatch "brain" in its head 
 //The "body" has 10 segments. Each segment has 2 servos - 
@@ -28,8 +21,8 @@ ReceiveOnlySoftwareSerial softSerialC(11); // RX only
 //  The "spinal cord" is an HC-05 unit receiving these commands 
 //  and passing them on from its "TX" pin to the "RX" pins of 3 x Arduino Nano.
 //  each Nano receives all signals but can identify the first byte 'A' 'B' or 'C' and act on its signals only
-//  'A' has the serial line to send back responses by Bluetooth.
-//  'B' and 'C' send responses to 'A' which receives by ReceiveSoftwareSerial then passes on to Bluetooth
+//  20171228 serial line for sending back responses by Bluetooth.
+//   - can be plugged in to one of 'A', 'B' or 'C'
 
 //Serial command protocol by example: 
 //  "A3-050"-- "Attention Nano 'A' - set servo number '3' to 'minus 50 degrees from mid position".
@@ -74,7 +67,8 @@ void configB() {
   offset[2] = -10;  dir[2] = 1;
   offset[3] = 25;  dir[3] = -1;
   offset[4] = -5;  dir[4] = 1;
-  offset[5] = 0;  dir[5] = 1;
+  //20171228 JPC adjustment needed for a new servo change from 0 to 15
+  offset[5] = 15;  dir[5] = 1;
   offset[6] = 0;  dir[6] = 1;
   offset[7] = 0;  dir[7] = 1;
 }
@@ -102,14 +96,12 @@ void setup() {
     //config by THIS_BOARD
     if(THIS_BOARD == 'A') {
       configA();
-      softSerialB.begin(38400);
-      softSerialC.begin(38400);
     }else if(THIS_BOARD == 'B') {
       configB();
     }else if(THIS_BOARD == 'C') {
       configC();
     } else {
-      Serial.println("ERROR: invalid Board Id");
+      Serial.println("ERROR: Board Id");
       //TODO solder on coloured LEDS for cases like this
     }
 
@@ -153,17 +145,6 @@ void loop() {
         assemble(c);
       }
     }
-
-    //'A' relays responses from 'B' and 'C'
-    if(THIS_BOARD == 'A') {
-        //20171226 JPC change from if to while - still giving no result
-        while (softSerialB.available()) {
-          Serial.write(softSerialB.read());
-        }
-        while (softSerialC.available()) {
-          Serial.write(softSerialC.read());
-        }
-    }
 }
 
 void assemble(byte c) {
@@ -177,7 +158,7 @@ void assemble(byte c) {
     }else {
       //error condition, stop processing and if debugging send a signal
       isAssembling = false;
-      Serial.println("ERROR - character 2 needs to be + or - ");
+      Serial.print("ERROR: ch2 = "); Serial.println((char)c);
       return;
     }
   }else if(signalPlace == 3) {
@@ -196,7 +177,7 @@ void process() {
   val = val * posNeg;
   if(val > 50)val = 50;
   if(val < -50) val = -50;
-  Serial.println("work value: " + val); 
+  Serial.print("value: "); Serial.println(val);
   //20171226 JPC apply offset and direction corrections for each servo (includes bug-fix)
   val = (val + offset[servoNumber]) * dir[servoNumber];
   val = val + 90 ;
@@ -204,7 +185,7 @@ void process() {
 }
 
 void flashTest() {
-  //only for initial setup - we see 3 flashes then a pause
+  //call this on startup - gives 3 flashes then a pause
   digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
   delay(300);                       // wait for a second
   digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
