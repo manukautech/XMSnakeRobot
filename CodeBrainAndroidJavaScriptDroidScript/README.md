@@ -1,4 +1,4 @@
-This Snake Robot has an Android device for a "brain".   
+<This Snake Robot has an Android device for a "brain".   
 This communicates with the "spinal cord", an HC-05 module and 3 x Arduino Nanos, via Bluetooth.
 
 App Programming is in the "DroidScript" framework and environment. 
@@ -13,7 +13,7 @@ The coding languages are HTML and JavaScript.
 There are only 3 lines of code that make it an Android App by relating it to the DroidScript framework.  
 This framework then adds a JavaScript API for phone resources, in this case Bluetooth.  
 The one line of code to get started with Bluetooth is:  
-bt = app.CreateBluetoothSerial();  
+<code>bt = app.CreateBluetoothSerial();</code>  
 
 "Servo-Inchworm_Gait_Worksheet.pdf" is a scan of my worksheet for getting started with coding the "inchworm gait" in  "XMSnakeBrain.html".  Drawing diagrams of a workable pulse travelling from tail to head soon revealed a pattern of angles: 0, 50, -50, -50, 0.  
 Later, 50 became a variable, gaitRAmplitude, user-selected from a <select> element.
