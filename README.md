@@ -1,8 +1,8 @@
 # XMSnakeRobot
-Hardware plans and software. As of 28 Dec 2017 this has reached the milestone of a testbed "body" with "spinal cord" responding as intended to command signals for 20 servos. Ref the <a href="https://github.com/manukautech/XMSnakeRobot/tree/master/CodeSpinalCordArduino">"Readme" under folder "CodeSpinalCordArduino"</a> for code and signal specs.
+Hardware plans and software. As of 31 Dec 2017 this has reached the milestone of a testbed "body" with "spinal cord" responding as intended to command signals for 20 servos. Ref the <a href="https://github.com/manukautech/XMSnakeRobot/tree/master/CodeSpinalCordArduino">"Readme" under folder "CodeSpinalCordArduino"</a> for code and signal specs.
   
-Video "Snake Robot Waggles its Head and Tail" is at:  
-<a href="https://www.youtube.com/watch?v=bSphN0cfXJs" target="_blank">https://www.youtube.com/watch?v=bSphN0cfXJs</a>   
+Video "Snake Robot moves with 'inchworm gait'" is at:  
+<a href="https://www.youtube.com/watch?v=MLmIwk6YtWQ" target="_blank">https://www.youtube.com/watch?v=MLmIwk6YtWQ</a>   
 
 More details on problem solving at blog "HiTechFromLoTech":   
 <a href="https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html"  target="_blank">https://hitechfromlotech.blogspot.co.nz/2017/12/xmsnakerobot-construction-completed.html</a>.
