@@ -4,11 +4,6 @@
 Photos of the prototype may look different to the plans.  
 The plans include lessons learned from building the prototype.  
 
-For Example: I tried MG-90 servos (MG = Metal Gears) which are a little more powerful than the SG90.  
-I found these have less "resilience" than the SG-90 by which I mean that the SG-90 can more easily spin to handle external forces. eg human guest tries to bend snake. Also I need to bend snake to get it into a suitcase for transport.  
-Also the MG-90 is slightly larger than the SG-90 and this takes up extra time adapting the ribs. Better to keep to reusable designs as much as possible.
-
-
 For Example: I have tried 2 different kinds of servo-link-ball-joints:
 
 1. The "DUBRO" 2133-Y 2mm Swivel Ball Link comes in packets of 2. <br /> The single ball link cost is about USD 1.00 to USD 2.50 depending on supplier and quantity you buy.
