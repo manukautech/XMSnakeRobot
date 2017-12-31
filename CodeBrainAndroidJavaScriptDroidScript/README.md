@@ -1,4 +1,4 @@
-<This Snake Robot has an Android device for a "brain".   
+This Snake Robot has an Android device for a "brain".   
 This communicates with the "spinal cord", an HC-05 module and 3 x Arduino Nanos, via Bluetooth.
 
 App Programming is in the "DroidScript" framework and environment. 
