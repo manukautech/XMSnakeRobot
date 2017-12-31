@@ -16,7 +16,7 @@ The one line of code to get started with Bluetooth is:
 <code>bt = app.CreateBluetoothSerial();</code>  
 
 "Servo-Inchworm_Gait_Worksheet.pdf" is a scan of my worksheet for getting started with coding the "inchworm gait" in  "XMSnakeBrain.html".  Drawing diagrams of a workable pulse travelling from tail to head soon revealed a pattern of angles: 0, 50, -50, -50, 0.  
-Later, 50 became a variable, gaitRAmplitude, user-selected from a <select> element.
+Later, 50 evolved into a variable, gaitRAmplitude, user-selected from a select element.
 
 "XMSnakeRobot-Servo-Worksheet.docx" is a blank worksheet.
 
