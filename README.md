@@ -1,5 +1,11 @@
 # XMSnakeRobot
-Hardware plans and software. As of 31 Dec 2017 this has reached the milestone of a testbed "body" with "spinal cord" responding as intended to command signals for 20 servos. Ref the <a href="https://github.com/manukautech/XMSnakeRobot/tree/master/CodeSpinalCordArduino">"Readme" under folder "CodeSpinalCordArduino"</a> for code and signal specs.
+Hardware plans and software. 
+New in June 2018 are:
+- advances in "brain" coding with an improved basic movement "Gait" and simplified Gait coding
+- power supply improvements
+
+Ref under folder "CodeSpinalCordArduino"</a> for the code and signal specs for the 3 x microcontrollers of the "spinal cord".
+Ref under folder "CodeBrainAndroidJavaScriptDroidScript" for the code for the smartphone or smarwatch acting as the "brain".
   
 Video "Snake Robot moves with 'inchworm gait'" is at:  
 <a href="https://www.youtube.com/watch?v=MLmIwk6YtWQ" target="_blank">https://www.youtube.com/watch?v=MLmIwk6YtWQ</a>   
