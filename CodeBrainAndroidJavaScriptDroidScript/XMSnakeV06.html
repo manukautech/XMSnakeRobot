@@ -1,0 +1,328 @@
+<!-- "XMSnakeBrain" - an Android device App running in the "DroidScript" framework 
+      - coded in html and JavaScript. 
+      Part of the open source XMSnakeRobot project - repository on Github - Apache 2.0 License
+      https://github.com/manukautech/XMRemoteRobot
+      
+      20180623 JPC v06 Gait files simplified to data in array format.
+      
+      20180610 JPC v06 includes the new faster "inching double ripple" gait
+          Files split into a common code file "XMSnakeV06.html" 
+          with "Gait" code in separate files
+
+      20171231 JPC v05 includes the "inchworm" gait aka "GaitR1" - R is for "Rectilinear".
+-->      
+
+<html>
+<head>
+<meta name="viewport" content="width=device-width">
+
+<script src='file:///android_asset/app.js'></script>
+
+<script>
+
+    var vertServos  = ["HEAD", "B1", "B3", "B5", "A1", "A3", "A5", "C1", "C3", "C5", "C7"];
+    var horizServos = ["HEAD", "B0", "B2", "B4", "A0", "A2", "A4", "C0", "C2", "C4", "C6"];
+    
+    var vertAngles = [];
+    var horizAngles = [];
+    var turnAngle = 0;
+    var oeMon;
+    var oeTx;
+    
+    var xDelay = 200; //default speed is movement in 200 ms steps
+    // use larger values like 300, 500 for diagnostic testing
+    // 20171230 JPC now has select element in the UI
+
+    var stepCount = 0;
+    var angleAdjust = 100; //percentage adjustment
+    var timerId = 0;
+   
+    //Called after application is started.
+    function OnStart()
+    {
+        //Create Bluetooth serial object - information source for this is the sample
+        //code "Bluetooth Serial" provided in the "DroidScript" package "Samples".
+    	bt = app.CreateBluetoothSerial();
+    	bt.SetOnConnect( bt_OnConnect );
+    	bt.SetOnReceive( bt_OnReceive );
+    	bt.SetSplitMode( "End", "\n" );
+    	
+    	oeMon = document.getElementById("mon");
+    	oeTx = document.getElementById("tx");  	
+    	
+        //HOWTO separate specialist code into external files
+        //_LoadScriptSync("xmTest.js"); //sync
+        //app.LoadScript("xmTest.js");  //async - good for our purposes    	
+    	app.LoadScript("Gait01.js");
+    	app.LoadScript("Gait02.js");
+    	app.LoadScript("Gait03.js");
+    	app.LoadScript("Gait04.js");
+    	app.LoadScript("Gait05.js");
+    	app.LoadScript("Gait06.js");
+    }
+    
+    //Called when user touches the button.
+    function bt_RequestConnect() 
+    {
+        bt.Connect( document.getElementById("btName" ).value);
+    }
+    
+    function bt_Send() {
+        bt.Write(oeTx.value + "\r\n");
+        oeMon.innerHTML = oeTx.value + "<br />" + oeMon.innerHTML;
+        //20171231 JPC better not to clear the command 
+        //- leave it there for editing to test variations
+        //oeTx.value = "";
+        monCheck();
+    }
+    
+    //Called when we are connected.
+    function bt_OnConnect( isComplete )
+    {
+        if( isComplete) {
+            bt.Write( "XM connects" + "\r\n" );
+            app.ShowPopup( "Successful connection" );
+        } else {
+           app.ShowPopup( "Failed to connect!" );
+        }
+    }
+    
+    //Called when we get data from device.
+    function bt_OnReceive( data )
+    {
+        oeMon.innerHTML = "<span class='recv'>" + data + "</span><br />" + oeMon.innerHTML;
+        monCheck();
+    }
+    
+    //20171230 JPC bug fix - changed this function name from setInterval to setDelay
+    // because "setInterval" has a freeze effect - probably because it is a system reserved word.
+    function setDelay(val) {
+        xDelay = Number(val);
+    }
+    
+    //angleAdjust in percent can scale servo rotation angles greater or lesser
+    //default value is 100
+    function setAdjust(val) {
+        angleAdjust = Number(val);
+    }
+    
+    function monCheck() {
+        if(oeMon.innerHTML.length > 1600) {
+            oeMon.innerHTML = oeMon.innerHTML.slice(0, 1000) + " -- TRUNCATED";
+        }
+    }
+    
+    function monClear() {
+        oeMon.innerHTML = "";
+    }
+    
+    //-----------------------------------
+    //Movement
+    
+    function bt_Reset() {
+        xclearInterval();
+        stepCount = 0;
+        //20171227 JPC - this may look like an issue because some of these strings are more than 32 characters long
+        // which is the Arduino Nano serial buffer size. However in practice this is working well.
+        // Guessing here that the receiving code gets the characters out of the buffer fast enough
+        // to make room for the new ones arriving.
+        resetString = "B0+000.B1+000.B2+000.B3+000.B4+000.B5+000.A0+000.A1+000.A2+000.A3+000"
+        + "A4+000.A5+000.C0+000.C1+000.C2+000.C3+000.C4+000.C5+000.C6+000.C7+000";
+        bt.Write( resetString + "\r\n" );
+        oeMon.innerHTML = "Reset all servos.<br />" + oeMon.innerHTML;
+    }
+    
+    function bt_Base() {
+        xclearInterval();
+        stepCount = 0;
+        baseString = "B0+000.B1+000.B2+015.B3+000.B4-015.B5+000.A0-015.A1+000.A2+000.A3+000"
+        + "A4+015.A5+000.C0+015.C1+000.C2+000.C3+000.C4-015.C5+000.C6+000.C7+000";
+        bt.Write( baseString + "\r\n" );
+        oeMon.innerHTML = "Set base stance.<br />" + oeMon.innerHTML;
+    }
+    
+    function bt_Move() {
+        xclearInterval();
+        stepCount = 0;
+
+        var gaitFunctionName = document.getElementById("gait").value;    
+        //NOTE WORKING calling function from its name as a string comes from stackoverflow
+        //https://stackoverflow.com/questions/359788/how-to-execute-a-javascript-function-when-i-have-its-name-as-a-string       
+        //var gaitFunction = window[gaitFunctionName];
+        var a = window[gaitFunctionName]();
+        vertAngles = a[0];
+        horizAngles = a[1];  
+        timerId = window.setInterval(gaitStep, xDelay);          
+    }
+    
+    //main function for interpreting data into movement
+    function gaitStep() {
+        //indicate progress in the monitor 
+        if(stepCount == 0) {
+            oeMon.innerHTML = "Begin " + document.getElementById("gait").value + "<br />" + oeMon.innerHTML;
+            if(horizAngles.length != vertAngles.length) {
+                oeMon.innerHTML = "Note v,h arr diff lengths<br />" + oeMon.innerHTML;
+            }
+        } else {
+            //add a dot to the line of dots with a new row every 25 dots (steps)
+            var xline = "";
+            if(stepCount == 1 || stepCount%25 == 0) xline = "<br />";
+            oeMon.innerHTML = "." + xline + oeMon.innerHTML;
+        }
+        monCheck();
+        stepCount += 1;
+        
+        //step move
+        stepIndex = stepCount % vertAngles.length;
+        horizIndex = stepIndex;
+        //enable short form horizAngles data format eg single array of zeros.
+        if(horizIndex > horizAngles.length - 1) horizIndex = horizAngles.length - 1;
+        for (i = 0; i < 10; i++) {
+            var segmentNumber = i + 1;
+            var angle = 0;
+            var valString = "+";
+            var servo = "";
+            for (axis = 0; axis <= 1; axis++) {
+                if (axis == 0) {
+                    angle = vertAngles[stepIndex][i];
+                    servo = vertServos[segmentNumber];
+                } else {
+                    var j = i;
+                    angle = horizAngles[horizIndex][i] + turnAngle;
+                    servo = horizServos[segmentNumber];
+                }
+                if (angle < 0) valString = "-";
+                valString += ("000" + Math.abs(angle).toString()).slice(-3);
+                var signalString = servo + valString;
+    
+                bt.Write(signalString + "\r\n"); 
+                
+                //TEMP diagnosis
+                /*
+                if(segmentNumber == 4) {
+                    oeMon.innerHTML += stepCount + ": " + segmentNumber + "=" + signalString + ", "
+                }
+                */
+            }
+            
+        }  
+    }
+    
+    function turnLeft() {
+        turnAngle += 2;
+        document.getElementById("turnAngleDisplay").value = "t" + turnAngle;
+    }  
+    
+    function turnRight() {
+        turnAngle -= 2;
+        document.getElementById("turnAngleDisplay").value = "t" + turnAngle;
+    } 
+    
+    function turnZero() {
+        turnAngle = 0;
+        document.getElementById("turnAngleDisplay").value = "t" + turnAngle;
+    } 
+    
+    function xclearInterval() {
+       if(timerId != 0) {
+           window.clearInterval(timerId);
+           timerId = 0;
+       }
+    }
+    
+</script>
+
+<style>
+	* {
+	    font-family: 'courier new'; 
+        font-weight: bold;
+        font-size: 0.4cm;
+        color: blue;
+	}
+	
+	body { background-color: #b0b0b0; }
+	
+    .outerDiv 
+    {     
+        width: 100%;
+        text-align: left;
+    }
+    
+    #mon, input {
+        background-color: white;
+    }
+    
+    #mon {
+        overflow-y: scroll;
+    }
+    
+    .recv {
+        color: green;
+    }
+</style>
+
+</head>
+
+<body onload="app.Start()">
+	<div class="outerDiv"> 
+	  <select id="btName" />
+	      <option value="HC-05">HC-05</option>
+	      <option value="CRAT01" selected>CRAT01</option>
+	      <option value="CRAT02">CRAT02</option>
+	      <option value="CRAT03">CRAT03</option>
+	  </select>
+	  <input type="button" value="Connect" onclick="bt_RequestConnect();" /> 
+	  <br /><br />
+	  <select id="interval" onchange="setDelay(this.value);">
+	  	  <option value="50">Intv 50</option>
+	      <option value="75">Intv 75</option>
+	      <option value="100">Intv 100</option>
+	      <option value="150">Intv 150</option>
+	      <option value="200" selected>Intv 200</option>
+	      <option value="300">Intv 300</option>
+	      <option value="500">Intv 500</option>
+	      <option value="1000">Intv 1000</option>
+	  </select>
+	  <select id="adjust" onchange="setAdjust(this.value);">
+	  	  <option value="20">20%</option>
+	      <option value="40">40%</option>
+	      <option value="70">70%</option>
+	      <option value="100" selected>100%</option>
+	      <option value="115">115%</option>
+	      <option value="130">130%</option>
+	      <option value="150">150%</option>
+	  </select>	  
+	  <br /><br />
+	  
+	  <input type="button" value="Reset" onclick="bt_Reset();" />
+	  <input type="button" value="Base" onclick="bt_Base();" /> 
+	  
+	  <select id="gait">
+	  	  <option value="Gait01" selected>RL-Fwd</option>
+	      <option value="Gait02">RL-Rev</option>
+	      <option value="Gait03">Look1</option>
+	      <option value="Gait04">Look2</option>
+	      <option value="Gait05">RL-Slow</option>
+	      <option value="Gait06">Expt</option>
+	  </select>	
+	  
+	  <input type="text" id="turnAngleDisplay" value="t0" size="4" readonly/>
+	  
+	  <br /><br />
+	  
+	  <input type="button" value="Move" onclick="bt_Move();" />
+	  <input type="button" value="Left" onclick="turnLeft();" />
+	  <input type="button" value=" 0 " onclick="turnZero();" />
+	  <input type="button" value="Right" onclick="turnRight();" />
+
+	  <hr />
+	  <span>Direct Input and Monitor:</span><br />
+	  <input type="text" id="tx" />
+	  <input type="button" value="Send" onclick="bt_Send();" />
+	  <input type="button" value="Clr" onclick="monClear();" />
+	  <br /><br />	 
+	  <div id="mon" style="width:100%;height:50vh;"></div><br />
+	
+	</div>
+</body>
+</html>
