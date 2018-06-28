@@ -10,7 +10,7 @@ Ref under folder "CodeBrainAndroidJavaScriptDroidScript" for the code for the sm
 Video "Snake Robot Goes Faster - Sideways!" is at:  
 <a href="https://www.youtube.com/watch?v=UjVp4ZTarv0" target="_blank">https://www.youtube.com/watch?v=UjVp4ZTarv0</a>
 
-Other videos at:
+Other videos at:  
 <a href="https://www.youtube.com/iafilm">https://www.youtube.com/iafilm</a>
 
 More details on problem solving at blog "HiTechFromLoTech":   
