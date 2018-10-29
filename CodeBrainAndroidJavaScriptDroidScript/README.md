@@ -3,10 +3,10 @@ This communicates with the "spinal cord", an HC-05 module and 3 x Arduino Nanos,
 
 App Programming is in the "DroidScript" framework and environment. 
 The coding languages are HTML and JavaScript.
-The App is under container folder "XMSnakeV06". The main code file is "XMSnakeV06.html".
-The "Gaits" or movements are coded as arrays of servo angles in files "Gait01", "Gait02" etc
+The App is under container folder "XMSnakeV07". The main code file is "XMSnakeV07.html".
+The "Gaits" or movements are coded as arrays of servo angles in files "Gait01.js", "Gait02.js" etc
 
-"XMSnakeV06.html" looks like a conventional web page with JavaScript and it will display in a browser.  
+"XMSnakeV07.html" looks like a conventional web page with JavaScript and it will display in a browser.  
 There are only 3 lines of code that make it an Android App by relating it to the DroidScript framework.  
 This framework then adds a JavaScript API for phone resources, in this case Bluetooth.  
 The one line of code to get started with Bluetooth is:  
