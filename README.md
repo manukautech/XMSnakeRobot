@@ -1,5 +1,8 @@
 # XMSnakeRobot
 Hardware plans and software. 
+New in October 2018 is:
+- Gait interpreter does interpolation between defined gait points for a smoother movement
+  
 New in June 2018 are:
 - advances in "brain" coding with an improved basic movement "Gait" and simplified Gait coding
 - power supply improvements
